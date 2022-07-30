@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% block title %}Register{% endblock %} {% block links
+%}
+<link rel="stylesheet" href="/static/css/login.css" />
+{% endblock %} {% block content %}
+
+<div class="wrapper fadeInDown">
+	<div id="formContent">
+		<!-- Tabs Titles -->
+		<h2>Sign Up</h2>
+		<!-- <h2 class="inactive underlineHover"></h2> -->
+		<!-- Login Form -->
+		<form action="{{ url_for('register') }}" method="post">
+			<input
+				type="text"
+				id="login"
+				name="username"
+				placeholder="UserName"
+			/>
+			<input type="text" id="email" name="email" placeholder="Email" />
+			<input
+				type="password"
+				id="password"
+				name="password"
+				placeholder="Password"
+			/>
+			<input type="submit" value="Register" />
+		</form>
+
+		<!-- Remind Password -->
+		<div id="formFooter">
+			<a class="underlineHover" href="{{ url_for('login') }}"
+				>Already Have an Account? Login Here</a
+			>
+		</div>
+	</div>
+</div>
+{% endblock %}
