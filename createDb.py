@@ -12,9 +12,9 @@
 # my_cursor.execute("SHOW DATABASES")
 # for db in my_cursor:
 #     print(db)
-import os
-from dotenv import load_dotenv
-load_dotenv()
+# import os
+# from dotenv import load_dotenv
+# load_dotenv()
 
-user = os.getenv('DBUSER')
-print(user)
+# user = os.getenv('DBUSER')
+# print(user)
