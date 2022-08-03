@@ -70,9 +70,6 @@ def logout():
     session['logged_in'] = False
     return redirect(url_for('home'))
 
-@app.route("/test")
-def test():
-    return "Hello it is test"
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
