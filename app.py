@@ -1,8 +1,10 @@
+import re
 from flask import Flask, render_template, redirect, request, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
-from sqlalchemy import values
+from auth import authenticate
+
 
 app = Flask(__name__)
 
@@ -54,13 +56,15 @@ def dashboard():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        dbuser = User.query.filter_by(
-            username=username, password=password).first()
-        if dbuser:
-            session['logged_in'] = True
-            return redirect(url_for('dashboard'))
+        loginDetails = request.form
+        username = loginDetails['username']
+        password = loginDetails['password']
+        authenticate(username, password)
+        # dbuser = User.query.filter_by(
+        #     username=username, password=password).first()
+        # if dbuser:
+        #     session['logged_in'] = True
+        #     return redirect(url_for('dashboard'))
 
     return render_template('login.html')
 
