@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 # Config's
 # sqlite : "sqlite:///localhost/databaseName"
-# mysql = 'mysql+pymysql://username:password@localhost/db_name'
+# mysql = 'mysql+pymysql://username:password@localhost/db_name ' 
 dbHost = "localhost"
 dbUser = "praveen"
 dbPass = "praveen!1"
@@ -14,7 +14,7 @@ dbName = "flaskdb"
 conn = f'mysql+pymysql://{dbUser}:{dbPass}@{dbHost}/{dbName}'
 app.config['SQLALCHEMY_DATABASE_URI'] = conn
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = 0
-app.config['SECRET_KEY'] = "abcdabcd"
+app.config['SECRET_KEY'] = "abcdabc"
 
 db.init_app(app)
 
