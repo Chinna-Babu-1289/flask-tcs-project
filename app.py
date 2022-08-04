@@ -1,7 +1,5 @@
 from flask import Flask, render_template, redirect, request, url_for, session
-from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
-
+from models import User, db, formatUser
 from sqlalchemy import values
 
 app = Flask(__name__)
@@ -10,35 +8,20 @@ app = Flask(__name__)
 # sqlite : "sqlite:///localhost/databaseName"
 # mysql = 'mysql+pymysql://username:password@localhost/db_name'
 dbHost = "localhost"
-dbUser = "root"
-dbPass = "123123"
+dbUser = "praveen"
+dbPass = "praveen!1"
 dbName = "flaskdb"
 conn = f'mysql+pymysql://{dbUser}:{dbPass}@{dbHost}/{dbName}'
 app.config['SQLALCHEMY_DATABASE_URI'] = conn
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = 0
 app.config['SECRET_KEY'] = "abcdabcd"
 
-db = SQLAlchemy(app)
+db.init_app(app)
 
-
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(255), nullable=False)
-    email = db.Column(db.String(255), nullable=False)
-    password = db.Column(db.String(255), nullable=False)
-    date_added = db.Column(db.Date(), default=datetime.now(), nullable=False)
-
-    def __repr__(self) -> str:
-        return f"user: {self.username} created successfully"
-
-
-def formatUser(user):
-    return {
-        "username": user.username,
-        "email": user.email,
-        "password": user.password,
-        "confirmPassword": user.confirmPassword,
-    }
+@app.route('/create')
+def create():
+    db.create_all()
+    return "<h1> Created database successfully </h1>"
 
 
 @app.route('/')
@@ -54,10 +37,9 @@ def dashboard():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form['username']
+        email= request.form['email']
         password = request.form['password']
-        dbuser = User.query.filter_by(
-            username=username, password=password).first()
+        dbuser = User.query.filter_by(email=email, password=password).first()
         if dbuser:
             session['logged_in'] = True
             return redirect(url_for('dashboard'))
@@ -70,9 +52,6 @@ def logout():
     session['logged_in'] = False
     return redirect(url_for('home'))
 
-@app.route("/test/details")
-def test():
-    return "Hello it is test"
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
