@@ -1,37 +1,86 @@
-{% extends 'base.html' %} {% block title %}Register{% endblock %} {% block links
-%}
-<link rel="stylesheet" href="/static/css/login.css" />
-{% endblock %} {% block content %}
-
-<div class="wrapper fadeInDown">
-	<div id="formContent">
-		<!-- Tabs Titles -->
-		<h2>Sign Up</h2>
-		<!-- <h2 class="inactive underlineHover"></h2> -->
-		<!-- Login Form -->
-		<form action="{{ url_for('register') }}" method="post">
-			<input
-				type="text"
-				id="login"
-				name="username"
-				placeholder="UserName"
-			/>
-			<input type="text" id="email" name="email" placeholder="Email" />
-			<input
-				type="password"
-				id="password"
-				name="password"
-				placeholder="Password"
-			/>
-			<input type="submit" value="Register" />
-		</form>
-
-		<!-- Remind Password -->
-		<div id="formFooter">
-			<a class="underlineHover" href="{{ url_for('login') }}"
-				>Already Have an Account? Login Here</a
-			>
-		</div>
-	</div>
-</div>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/static/css/signup.css" />
+    <title>SignUp - Flask</title>
+  </head>
+  <body>
+    <div class="c">
+      <div class="drop drop1"></div>
+      <div class="drop drop2"></div>
+      <div class="text-c">
+        <h1>Admin. Student. Community</h1>
+        <p>Welcome Student Management.</p>
+      </div>
+    </div>
+    <div class="login-container">
+      <div class="title">SignUp</div>
+      <div class="fields">
+        <form action="{{ url_for('register')}}" method="post">
+        <div class="username">
+          <i class="fa-solid fa-user"></i>
+          <input
+            type="username"
+            class="user-input"
+            placeholder="Username"
+            name="username"
+            autocomplete="off"
+          />
+          
+        </div>
+        <div class="email">
+            <i class="fa-solid fa-envelope"></i>          
+            <input
+            type="email"
+            class="email-input"
+            placeholder="Email"
+            name="email"
+            autocomplete="off"
+          />
+        </div>
+        <div class="password">
+          <i class="fa-solid fa-unlock-keyhole"></i>
+          <input
+            type="password"
+            class="pass-input"
+            placeholder="Password"
+            name="password"
+            autocomplete="off"
+          />
+        </div>
+        <div class="confirmpassword">
+          <i class="fa-solid fa-unlock-keyhole"></i>
+          <input
+            type="password"
+            class="pass-input"
+            placeholder="Confirm Password"
+            name="password2"
+            autocomplete="off"
+          />
+        </div>
+      </div>
+      <div><a href="#" class="pass-link">Forgot Password?</a></div>
+      <button class="signin-btn"><a href="{{ url_for('login')}}">SignUp</a></button>
+    </form>
+      <div class="or"><span>Or SignUp with</span></div>
+      <div class="social-icons">
+        <a href="#"><img src="/static/images/GithubIcon.png" alt=""></a>
+        <a href="#"></a><img src="/static/images/Google.png" alt=""></a>
+        
+      </div>
+      <div class="signup-link">
+        <a href="{{ url_for('login') }}">Already Have an Account?<span>Login Here</span></a>
+      </div>
+    </div>
+  </body>
+</html>

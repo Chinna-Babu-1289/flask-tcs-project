@@ -3,8 +3,6 @@ from flask import Flask, render_template, redirect, request, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
-from auth import authenticate
-
 
 app = Flask(__name__)
 
@@ -45,7 +43,7 @@ def formatUser(user):
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('register.html')
 
 
 @app.route('/dashboard', methods=['GET', 'POST'])
@@ -59,12 +57,12 @@ def login():
         loginDetails = request.form
         username = loginDetails['username']
         password = loginDetails['password']
-        authenticate(username, password)
-        # dbuser = User.query.filter_by(
-        #     username=username, password=password).first()
-        # if dbuser:
-        #     session['logged_in'] = True
-        #     return redirect(url_for('dashboard'))
+        # authenticate(username, password)
+        dbuser = User.query.filter_by(
+            username=username, password=password).first()
+        if dbuser:
+            session['logged_in'] = True
+            return redirect(url_for('dashboard'))
 
     return render_template('login.html')
 

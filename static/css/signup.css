@@ -100,18 +100,18 @@ p {
   color: white;
   font-size: 35px;
   font-weight: bold;
-  font-family: var(--font);
+  font-family: "Montserrat";
 }
 
 /* SignUpForm Css */
 
 .login-container {
-  margin-top: 75px;
+  margin-top: 85px;
   margin-right: 100px;
   overflow: hidden;
   width: 500px;
-  height: 750px;
-  padding: 20px 35px 20px 35px;
+  height: 780px;
+  padding: 25px 35px 35px 35px;
   border-radius: 40px;
   background-color: #ecf0f3;
   box-shadow: 13px 13px 20px #cbced1, -13px 13px 20px #fff;
@@ -119,7 +119,7 @@ p {
 
 .title {
   font-size: 48px;
-  padding-top: 20px;
+  padding-top: 10px;
   letter-spacing: 3px;
   font-weight: 700;
   display: flex;
@@ -135,7 +135,7 @@ p {
 
 .fields {
   width: 100%;
-  padding: 75px 5px 5px 5px;
+  padding: 50px 5px 5px 5px;
 }
 
 .fields input {
@@ -152,7 +152,7 @@ p {
 .password,
 .email,
 .confirmpassword {
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   border-radius: 24px;
   background: #ebf3ff;
   box-shadow: inset 8px 8px 16px #b4c1d5, inset -8px -8px 16px #ffffff;
@@ -190,7 +190,7 @@ p {
 
 .signin-btn:hover {
   color: #fff;
-  background: #009bfce0;
+  background: #045d3fe0;
   box-shadow: 12px 12px 24px #03409cad, -12px -12px 24px #ffffff;
 }
 
@@ -198,52 +198,29 @@ p {
   font-weight: 600;
   font-size: 24px;
   line-height: 30px;
-  color: #78797b;
+  color: #6d6d6e;
   text-decoration: none;
   margin-left: 170px;
+  margin-top: 5px;
+  margin-bottom: 20px;
   font-family: var(--font-secondary);
 }
 
 .pass-link:hover {
-  margin-top: 5px;
   color: #005be2;
 }
 
-.signup-link {
-  margin-top: 5px;
-  padding: 5px;
-  text-align: center;
-  font-family: var(--font-secondary);
-}
-
-.signup-link a {
-  font-weight: bolder;
-  font-size: 18px;
-  color: #78797b;
-  text-decoration: none;
-}
-
-/* .signup-link a:hover {
-  color: #009bfce0;
-} */
-
 .or {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .or span {
   position: absolute;
   margin-left: 150px;
-  font-weight: bolder;
+  font-weight: 700;
   font-size: 20px;
   color: #868789;
   font-family: var(--font-secondary);
-}
-
-.signup-link a span {
-  cursor: pointer;
-  color: #005be2;
-  font-weight: bolder;
 }
 
 .social-icons {
@@ -251,6 +228,7 @@ p {
   align-items: center;
   justify-content: center;
   margin-top: 15px;
+  margin-bottom: 1px;
 }
 
 .social-icons a {
@@ -263,4 +241,22 @@ img {
   width: 100px;
   display: inline-block;
   align-items: center;
+}
+
+.signup-link {
+  padding-bottom: 5px;
+  text-align: center;
+  font-family: var(--font-secondary);
+}
+
+.signup-link a {
+  font-weight: bold;
+  font-size: 20px;
+  color: #78797b;
+  text-decoration: none;
+}
+
+.signup-link a span {
+  cursor: pointer;
+  color: #005be2;
 }
