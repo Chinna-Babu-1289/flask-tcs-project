@@ -4,6 +4,8 @@
 :root {
   --font: "Montserrat", sans-serif;
   --font-secondary: "Poppins", sans-serif;
+  /* --text-color: rgba(128, 128, 128, 0.67); */
+  --input-text-color: #ff0be7;
 }
 
 * {
@@ -118,7 +120,7 @@ p {
 }
 
 .title {
-  font-size: 48px;
+  font-size: 50px;
   padding-top: 20px;
   letter-spacing: 3px;
   font-weight: 700;
@@ -130,7 +132,7 @@ p {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  font-family: var(--font);
+  font-family: var(--font-secondary);
 }
 
 .fields {
@@ -143,8 +145,8 @@ p {
   outline: none;
   background: none;
   font-size: 20px;
-  color: rgba(128, 128, 128, 0.67);
-  padding: 15px 10px 20px 5px;
+  color: var(--input-text-color);
+  padding: 15px 10px 15px 10px;
   font-weight: 700;
   font-family: var(--font-secondary);
 }
@@ -158,6 +160,10 @@ p {
   box-shadow: inset 8px 8px 16px #b4c1d5, inset -8px -8px 16px #ffffff;
 }
 
+/* ::placeholder {
+  color: #005be2;
+} */
+
 .fields i {
   height: 25px;
   width: 25px;
@@ -165,14 +171,15 @@ p {
 }
 
 .signin-btn {
-  margin: 10px;
+  margin: 10px 0 10px 0;
+  position: relative;
   cursor: pointer;
   font-family: var(--font-secondary);
   outline: none;
   border: none;
   width: 100%;
   height: 60px;
-  border-radius: 30px;
+  border-radius: 24px;
   font-size: 25px;
   font-weight: 700;
   color: #fff;
@@ -190,23 +197,25 @@ p {
 
 .signin-btn:hover {
   color: #fff;
-  background: #009bfce0;
+  background: #5800fcf4;
   box-shadow: 12px 12px 24px #03409cad, -12px -12px 24px #ffffff;
 }
 
 .pass-link {
+  margin-left: 170px;
+  padding: 5px;
+}
+.pass-link a {
   font-weight: 600;
   font-size: 24px;
   line-height: 30px;
-  color: #78797b;
+  color: #005be2;
   text-decoration: none;
-  margin-left: 170px;
   font-family: var(--font-secondary);
 }
 
-.pass-link:hover {
-  margin-top: 5px;
-  color: #005be2;
+.pass-link a:hover {
+  color: #ff0be7;
 }
 
 .signup-link {
@@ -218,22 +227,26 @@ p {
 
 .signup-link a {
   font-weight: bolder;
-  font-size: 18px;
+  font-size: 20px;
   color: #78797b;
   text-decoration: none;
 }
-
-/* .signup-link a:hover {
+/* 
+.signup-link a:hover {
   color: #009bfce0;
 } */
 
 .or {
-  margin-bottom: 30px;
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .or span {
+  padding: 20px;
   position: absolute;
-  margin-left: 150px;
+  /* margin-left: 140px; */
   font-weight: bolder;
   font-size: 20px;
   color: #868789;
@@ -263,4 +276,9 @@ img {
   width: 100px;
   display: inline-block;
   align-items: center;
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
 }
