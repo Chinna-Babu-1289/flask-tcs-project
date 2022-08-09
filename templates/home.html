@@ -1,6 +1,46 @@
-{% extends 'base.html' %} {% block title %}Home{% endblock %} {% block links %}
-<link rel="stylesheet" href="/static/css/login.css" />
-{% endblock %} {% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="/static/css/home.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="page">
+          <nav class="navbar">
+            <a href="" class="brand"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F8%2F84%2FApple_Computer_Logo_rainbow.svg%2F1200px-Apple_Computer_Logo_rainbow.svg.png&f=1&nofb=1" alt=""></a>
+            <ul>
+            <li>
+              <a href="{{ url_for('login') }}">Login</a>
+              </li>
+            <li>
+              <a href="{{ url_for('register') }}">Register</a>
+            </li>
+            <li>
+              <a href="">Store</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="left">
+            <h1>User Management System</h1>
 
-<h1>HOME</h1>
-{% endblock %}
+        
+          </div>
+          <div class="right">
+            <div class="img"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsebastien-compagne.fr%2Fwebsite%2Fzpg%2Farcheologeek%2F1990_-_apple_mac_classic_II.png&f=1&nofb=1">
+            </div>
+            <ul>
+              <li>Instagram</li>
+              <li>-</li>
+              <li>Facebook</li>
+              <li>-</li>
+              <li>Twitter</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
