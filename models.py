@@ -12,7 +12,7 @@ class User(db.Model):
     date_added = db.Column(db.Date(), default=datetime.now(), nullable=False)
 
     def __repr__(self) -> str:
-        return f"user: {self.username} created successfully"
+        return f"user: {self.username}, email:{self.email}, empid:{self.empid}, date_added:{self.date_added},password:{self.password}"
 
 
 def formatUser(user):
@@ -20,5 +20,5 @@ def formatUser(user):
         "username": user.username,
         "email": user.email,
         "password": user.password,
-        "confirmPassword": user.confirmPassword,
+        
     }

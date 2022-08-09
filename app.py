@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request, url_for, session
+from flask import Flask, flash, render_template, redirect, request, url_for, session
 from models import User, db, formatUser
 from sqlalchemy import values
 
@@ -31,17 +31,40 @@ def home():
 
 @app.route('/dashboard', methods=['GET', 'POST'])
 def dashboard():
+    if session['logged_in']!= True:
+        return redirect(url_for('login'))
     return render_template('dashboard.html')
 
+@app.route('/update_profile', methods=['GET', 'POST'])
+def update_profile():
+    if request.method == 'POST':
+        oldpassword= request.form['oldpassword']
+        newpassword = request.form['newpassword']
+        repassword = request.form['renewpassword']
+        dbuser = User.query.filter_by(email=session['user']).first()
+        if oldpassword == formatUser(dbuser)['password']:
+            if newpassword == repassword:
+                User.query.filter_by(email=session['user']).update(dict(password=newpassword))
+                db.session.commit()
+                flash('Password changed successfully', 'message')
+            else:
+                flash("new password and renew password do not match",'message')
+        else:
+            flash("old password do not match",'message') 
+            
+
+    return render_template('update_profile.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        email= request.form['email']
-        password = request.form['password']
-        dbuser = User.query.filter_by(email=email, password=password).first()
+        uemail= request.form['email']
+        upassword = request.form['password']
+        dbuser = User.query.filter_by(email=uemail, password=upassword).first()
+        
         if dbuser:
             session['logged_in'] = True
+            session['user'] = uemail
             return redirect(url_for('dashboard'))
 
     return render_template('login.html')
@@ -49,7 +72,8 @@ def login():
 
 @app.route('/logout', methods=['GET'])
 def logout():
-    session['logged_in'] = False
+    session.pop('logged_in', None)
+    session.pop('user', None)
     return redirect(url_for('home'))
 
 

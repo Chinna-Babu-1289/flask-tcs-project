@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    update
+{% endblock  %}
+
+
+{% block content %}
+<main>
+    <div class="container">
+        <div class="row justify-content-center">
+            {% with messages = get_flashed_messages() %}  
+         {% if messages %}  
+               {% for message in messages %}  
+                    <p>{{ message }}</p>  
+               {% endfor %}  
+         {% endif %}  
+      {% endwith %}
+            <div class="col-lg-5">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header"><h3 class="text-center font-weight-light my-4">update</h3></div>
+                    <div class="card-body">
+                        <form action="{{ url_for('update_profile')}}" method="post" >
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="oldpassword" name="oldpassword" type="password" placeholder="Password" />
+                                <label for="inputPassword"> Old Password</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="newpassword" name="newpassword" type="password" placeholder="Password" />
+                                <label for="inputPassword"> New Password</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="renewpassword" name="renewpassword" type="password" placeholder="Password" />
+                                <label for="inputPassword"> Re-Enter new Password</label>
+                            </div>
+                            <input class="btn btn-primary" type="submit" value="update" >
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+    
+{% endblock  %}
