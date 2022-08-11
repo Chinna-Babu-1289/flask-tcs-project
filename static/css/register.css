@@ -147,9 +147,10 @@ p {
 /* ! has to change padding individually */
 
 .fields input {
+  cursor: pointer;
   border: none;
   outline: none;
-  background: none;
+  background: none !important;
   font-size: 20px;
   font-family: var(--font-secondary);
   /* font-size: 20px; */
@@ -158,19 +159,31 @@ p {
   font-weight: bold;
 }
 
+/* ! change background color of input autocomplete */
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+input[data-autocompleted] {
+  background-color: transparent !important;
+}
+
 .username,
 .password,
 .email,
 .confirmpassword {
+  background: none !important;
+  border: none;
+  outline: none;
   margin-bottom: 23px;
   border-radius: 24px;
   background: #ebf3ff;
   box-shadow: inset 8px 8px 16px #cbced1, inset -8px -8px 16px #ffffff;
 }
 
-/* .fields input::after {
+/* .fields input::-moz-focus-inner {
   border: none;
-  background-color: none;
+  background: none;
   outline: none;
 } */
 
