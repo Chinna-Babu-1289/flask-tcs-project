@@ -23,58 +23,57 @@
         <p>Welcome Student Management.</p>
       </div>
     </div>
-    <div class="login-container">
-      <form action="{{ url_for('register') }}" method="post">
+    <div class="container">
+      <form
+        action="{{ url_for('register') }}"
+        class="form"
+        id="form"
+        method="post"
+      >
         <div class="title">SignUp</div>
-        <div class="fields">
-          <div class="username">
-            <i class="fa-solid fa-user"></i>
-            <input
-              type="username"
-              class="user-input"
-              placeholder="Username"
-              name="username"
-              required
-            />
-          </div>
-          <div class="email">
-            <i class="fa-solid fa-envelope"></i>
-            <input
-              type="email"
-              class="email-input"
-              placeholder="Email"
-              name="email"
-              autocomplete="off"
-              required
-            />
-          </div>
-          <div class="password">
-            <i class="fa-solid fa-unlock-keyhole"></i>
-            <input
-              type="password"
-              class="pass-input"
-              placeholder="Password"
-              name="password"
-              autocomplete="off"
-              required
-            />
-          </div>
-          <div class="confirmpassword">
-            <i class="fa-solid fa-unlock-keyhole"></i>
-            <input
-              type="password"
-              class="pass-input"
-              placeholder="Confirm Password"
-              name="password2"
-              autocomplete="off"
-              required
-            />
-          </div>
+        <div class="form-control">
+          <i class="fa-solid fa-user"></i>
+          <input
+            type="text"
+            placeholder="Username"
+            name="username"
+            id="username"
+          />
+          <small>Error Message</small>
         </div>
-        <!-- <div class="pass-link"><a href="#">Forgot Password?</a></div> -->
-        <button type="submit" class="signin-btn">
-          <a href="{{ url_for('login') }}">SignUp</a>
-        </button>
+        <div class="form-control">
+          <i class="fa-solid fa-envelope"></i>
+          <input type="text" placeholder="Email" name="email" id="email" />
+          <small class="small-input">Error Message</small>
+        </div>
+
+        <div class="form-control">
+          <i class="fa-solid fa-unlock-keyhole"></i>
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            id="password"
+          />
+          <small>Error Message</small>
+        </div>
+        <div class="form-control">
+          <i class="fa-solid fa-unlock-keyhole"></i>
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            name="password2"
+            id="password2"
+          />
+          <small>Error Message</small>
+        </div>
+
+        <div class="pass-link"><a href="#">Forgot Password?</a></div>
+        <a href="#"
+          ><button type="submit" class="form-button signin-btn">
+            SignUp
+          </button></a
+        >
       </form>
       <div class="or"><span>Or SignUp with</span></div>
       <div class="social-icons">
@@ -87,5 +86,6 @@
         >
       </div>
     </div>
+    <script src="/static/js/validate.js"></script>
   </body>
 </html>

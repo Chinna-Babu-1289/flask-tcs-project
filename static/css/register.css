@@ -2,12 +2,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
 
 :root {
-  --font: "Montserrat", sans-serif;
+  --title-font: "Montserrat", sans-serif;
   --font-secondary: "Poppins", sans-serif;
   --text-color: rgba(128, 128, 128, 0.67);
   --background-color: #dbe4ecf0;
-  --text-color2-: #005be2;
+  --button-color2-: #005be2;
   --input-text-color: #ff0be7;
+  --sucess-color: #2ecc71;
+  --error-color: #e74c3c;
 }
 
 * {
@@ -15,10 +17,8 @@
 }
 
 body {
-  margin: 0;
-  font-family: var(--font);
-  font-weight: 700;
   background-color: var(--background-color);
+  font-family: var(--font-secondary);
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -109,55 +109,87 @@ p {
 
 /* SignUpForm Css */
 
-.login-container {
-  margin-top: 65px;
-  margin-right: 100px;
-  overflow: hidden;
-  margin-bottom: 20px;
-  width: 500px;
-  height: 745px;
-  padding: 20px 30px 25px 30px;
-  border-radius: 40px;
+.container {
   background-color: #ecf0f3;
+  border-radius: 40px;
   box-shadow: 13px 13px 20px #cbced1, -13px 13px 20px #fff;
+  width: 600px;
+  height: 830px;
+  padding: 20px 30px 20px 30px;
+  margin-top: 60px;
+  margin-right: 100px;
+  margin-bottom: 20px;
+  overflow: hidden;
 }
 
 .title {
-  font-size: 50px;
-  padding-top: 10px;
-  letter-spacing: 3px;
-  font-weight: 700;
-  font-family: var(--font-secondary);
-  font-weight: bold;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
   text-align: center;
+  justify-content: center;
+  font-size: 40px;
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  font-weight: bold;
+  padding-top: 2px;
+  margin-bottom: 10px;
+  letter-spacing: 3px;
   background: linear-gradient(180deg, #2806fb 8%, #ff0be7 85.94%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.fields {
-  width: 100%;
-  padding: 30px 5px 5px 5px;
+.form {
+  padding: 20px 20px;
 }
 
-/* ! has to change padding individually */
+.form-control {
+  position: relative;
+  margin-bottom: 42px;
+  padding: 10px;
+  width: 100%;
+  font-weight: bold;
+  border-radius: 24px;
+  background: #ebf3ff;
+  box-shadow: inset 8px 8px 16px #cbced1, inset -8px -8px 16px #ffffff;
+}
 
-.fields input {
+.form-control input {
   cursor: pointer;
   border: none;
   outline: none;
-  background: none !important;
+  background: none;
   font-size: 20px;
   font-family: var(--font-secondary);
-  /* font-size: 20px; */
   color: var(--input-text-color);
-  padding: 15px;
-  font-weight: bold;
 }
+
+.form-control input:focus {
+  outline: 0;
+}
+
+.form-control.error {
+  /* border-color: var(--error-color) !important; */
+  border: 2px solid var(--error-color);
+}
+
+.form-control small {
+  color: var(--error-color);
+  font-family: var(--font-secondary);
+  font-size: small;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+.form-control.success {
+  /* border-color: var(--sucess-color); */
+  border: 2px solid var(--sucess-color);
+}
+
+/* .form-control.error small {
+  visibility: visible; 
+}*/
 
 /* ! change background color of input autocomplete */
 input:-webkit-autofill,
@@ -168,29 +200,10 @@ input[data-autocompleted] {
   background-color: transparent !important;
 }
 
-.username,
-.password,
-.email,
-.confirmpassword {
-  background: none !important;
-  border: none;
-  outline: none;
-  margin-bottom: 23px;
-  border-radius: 24px;
-  background: #ebf3ff;
-  box-shadow: inset 8px 8px 16px #cbced1, inset -8px -8px 16px #ffffff;
-}
-
-/* .fields input::-moz-focus-inner {
-  border: none;
-  background: none;
-  outline: none;
-} */
-
-.fields i {
-  height: 25px;
-  width: 25px;
-  margin: 0 10px -3px 25px;
+.form-control i {
+  height: 27px;
+  width: 27px;
+  margin: 0 10px -10px 15px;
 }
 
 .pass-link {
@@ -210,9 +223,8 @@ input[data-autocompleted] {
 }
 
 .signin-btn {
-  /* position: relative; */
   cursor: pointer;
-  margin-top: 5px;
+  margin-top: 10px;
   background: #005be2;
   display: flex;
   align-items: center;
@@ -222,14 +234,17 @@ input[data-autocompleted] {
   width: 100%;
   height: 60px;
   border-radius: 24px;
+  text-decoration: none;
   box-shadow: 8px 8px 16px #03409cad, 8px 8px 16px #ffffff;
 }
 
-.signin-btn a {
+a .signin-btn {
   font-size: 25px;
   font-family: var(--font-secondary);
   font-weight: bold;
   color: #fff;
+}
+a {
   text-decoration: none;
 }
 
@@ -285,7 +300,7 @@ input[data-autocompleted] {
   color: #005be2;
 }
 
-.container {
+/* .container {
   max-width: 800px;
   width: 100%;
-}
+} */

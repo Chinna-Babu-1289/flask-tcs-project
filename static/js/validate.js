@@ -11,7 +11,7 @@ const showError = (input, message) => {
     // console.log(formControl);
     formControl.className = 'form-control error';
     const small = formControl.querySelector('small');
-    small.innerText = message;
+    small.innerHTML = message;
     // console.log(formControl);
 };
 
@@ -61,7 +61,7 @@ const checkLength = (input, min, max) => {
 };
 
 const checkPasswordMatch = (input1, input2) => {
-    console.log(input1.value, input2.value);
+    // console.log(input1.value, input2.value);
     if (input1.value !== input2.value) {
         showError(input2, 'Passwords do not match');
     }
