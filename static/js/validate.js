@@ -8,7 +8,7 @@ const password2 = document.getElementById('password2');
 // ? Show Error Function
 const showError = (input, message) => {
     const formControl = input.parentElement;
-    // console.log(formControl);
+    console.log(formControl);
     formControl.className = 'form-control error';
     const small = formControl.querySelector('small');
     small.innerHTML = message;

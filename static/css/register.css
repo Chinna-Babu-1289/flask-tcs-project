@@ -110,7 +110,7 @@ p {
 /* SignUpForm Css */
 
 .container {
-  background-color: #ecf0f3;
+  background-color: var(--background-color);
   border-radius: 40px;
   box-shadow: 13px 13px 20px #cbced1, -13px 13px 20px #fff;
   width: 600px;
@@ -148,8 +148,8 @@ p {
   padding: 10px;
   width: 100%;
   font-weight: bold;
-  border-radius: 24px;
   background: #ebf3ff;
+  border-radius: 24px;
   box-shadow: inset 8px 8px 16px #cbced1, inset -8px -8px 16px #ffffff;
 }
 
@@ -175,8 +175,6 @@ p {
 .form-control small {
   color: var(--error-color);
   font-family: var(--font-secondary);
-  font-size: small;
-  position: absolute;
   bottom: 0;
   left: 0;
   visibility: hidden;
@@ -187,9 +185,9 @@ p {
   border: 2px solid var(--sucess-color);
 }
 
-/* .form-control.error small {
-  visibility: visible; 
-}*/
+.form-control.error small {
+  visibility: visible;
+}
 
 /* ! change background color of input autocomplete */
 input:-webkit-autofill,
